@@ -1,0 +1,25 @@
+name: Keep Runner Alive
+
+on:
+  workflow_dispatch:
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    container:
+      image: namespace-profile-1
+
+    timeout-minutes: 480
+
+    steps:
+      - name: Show environment
+        run: |
+          uname -a
+          cat /etc/os-release || true
+
+      - name: Keep alive for 8 hours
+        run: |
+          for i in $(seq 1 480); do
+            echo "Minute $i - $(date)"
+            sleep 60
+          done
