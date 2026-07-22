@@ -5,12 +5,7 @@ on:
 
 jobs:
   keep-alive:
-    runs-on: ubuntu-latest
-    container:
-      image: namespace-profile-1
-
-    timeout-minutes: 480
-
+    runs-on: namespace-profile-1
     steps:
       - name: Show environment
         run: |
